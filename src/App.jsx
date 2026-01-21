@@ -41,10 +41,14 @@ function TextExpander({
   buttonColor = "#000",
 }) {
   const strLength = children.split(" ").length;
+  const [showText, setShowText] = false;
+  const shownNumWords = collapsedNumWords;
+
   return (
     <div>
-      <p>{strLength}</p>
-      <button>SHOW</button>
+      <div>
+        {children},<button>SHOW</button>
+      </div>
       <br />
     </div>
   );
