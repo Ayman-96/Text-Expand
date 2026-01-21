@@ -34,6 +34,18 @@ export default function App() {
   );
 }
 
-function TextExpander() {
-  return <div>Todo</div>;
+function TextExpander({
+  children,
+  collapsedNumWords = 10,
+  collapseButtonText = "Show more",
+  buttonColor = "#000",
+}) {
+  const strLength = children.split(" ").length;
+  return (
+    <div>
+      <p>{strLength}</p>
+      <button>SHOW</button>
+      <br />
+    </div>
+  );
 }
