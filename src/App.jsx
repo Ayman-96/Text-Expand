@@ -64,7 +64,7 @@ function TextExpander({
         <button
           onClick={handleTextDisplay}
           style={{
-            backgroundColor: "white",
+            backgroundColor: "#f7f7f7",
             color: buttonColor,
             border: "none",
             fontSize: "16px",
