@@ -1,15 +1,16 @@
+import { useState } from "react";
 import "./App.css";
 
 export default function App() {
   return (
     <div>
-      <TextExpander>
+      {/* <TextExpander>
         Space travel is the ultimate adventure! Imagine soaring past the stars
         and exploring new worlds. It's the stuff of dreams and science fiction,
         but believe it or not, space travel is a real thing. Humans and robots
         are constantly venturing out into the cosmos to uncover its secrets and
         push the boundaries of what's possible.
-      </TextExpander>
+      </TextExpander> */}
 
       <TextExpander
         collapsedNumWords={20}
@@ -24,12 +25,12 @@ export default function App() {
         foot on the moon or when rovers were sent to roam around on Mars.
       </TextExpander>
 
-      <TextExpander expanded={true} className="box">
+      {/* <TextExpander expanded={true} className="box">
         Space missions have given us incredible insights into our universe and
         have inspired future generations to keep reaching for the stars. Space
         travel is a pretty cool thing to think about. Who knows what we'll
         discover next!
-      </TextExpander>
+      </TextExpander> */}
     </div>
   );
 }
@@ -40,14 +41,21 @@ function TextExpander({
   collapseButtonText = "Show more",
   buttonColor = "#000",
 }) {
-  const strLength = children.split(" ").length;
-  const [showText, setShowText] = false;
-  const shownNumWords = collapsedNumWords;
+  const [showText, setShowText] = useState(false);
+
+  const strLength = children.split(" ").length; // LENGTH OF STRING (WORD)
+  const wordAt = children.split(" ").slice(0, 5);
+
+  let concat = "";
+  wordAt.map((word) => {
+    concat += word + " ";
+  });
 
   return (
     <div>
       <div>
-        {children},<button>SHOW</button>
+        {concat}
+        <button>SHOW</button>
       </div>
       <br />
     </div>
