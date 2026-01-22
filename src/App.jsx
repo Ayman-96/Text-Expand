@@ -42,6 +42,7 @@ function TextExpander({
   collapseButtonText = "Show less",
   buttonColor = "#c40000",
   expanded = false,
+  className = "card",
 }) {
   const [showText, setShowText] = useState(expanded);
 
@@ -57,8 +58,8 @@ function TextExpander({
     setShowText((showText) => !showText);
   }
   return (
-    <div>
-      <div>
+    <div className="container">
+      <div className={className}>
         {showText ? children : collapsedText + "..."}
         <button
           onClick={handleTextDisplay}
@@ -69,7 +70,7 @@ function TextExpander({
             fontSize: "16px",
           }}
         >
-          {showText ? collapseButtonText : expandButtonText}
+          {showText ? "\u00A0\u00A0" + collapseButtonText : expandButtonText}
         </button>
       </div>
       <br />
