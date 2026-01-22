@@ -53,11 +53,16 @@ function TextExpander({
     collapsedText += word + " ";
   });
 
+  function handleTextDisplay() {
+    setShowText((showText) => !showText);
+  }
   return (
     <div>
       <div>
         {showText ? children : collapsedText}
-        <button>{showText ? collapseButtonText : expandButtonText}</button>
+        <button onClick={handleTextDisplay}>
+          {showText ? collapseButtonText : expandButtonText}
+        </button>
       </div>
       <br />
     </div>
