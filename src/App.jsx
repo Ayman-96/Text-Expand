@@ -40,7 +40,7 @@ function TextExpander({
   collapsedNumWords = 10,
   expandButtonText = "Show More",
   collapseButtonText = "Show less",
-  buttonColor = "#000",
+  buttonColor = "#c40000",
   expanded = false,
 }) {
   const [showText, setShowText] = useState(expanded);
@@ -50,7 +50,7 @@ function TextExpander({
 
   let collapsedText = "";
   cutText.map((word) => {
-    collapsedText += word + " ";
+    collapsedText += " " + word;
   });
 
   function handleTextDisplay() {
@@ -59,8 +59,16 @@ function TextExpander({
   return (
     <div>
       <div>
-        {showText ? children : collapsedText}
-        <button onClick={handleTextDisplay}>
+        {showText ? children : collapsedText + "..."}
+        <button
+          onClick={handleTextDisplay}
+          style={{
+            backgroundColor: "white",
+            color: buttonColor,
+            border: "none",
+            fontSize: "16px",
+          }}
+        >
           {showText ? collapseButtonText : expandButtonText}
         </button>
       </div>
