@@ -46,13 +46,8 @@ function TextExpander({
 }) {
   const [showText, setShowText] = useState(expanded);
 
-  const strLength = children.split(" ").length; // LENGTH OF STRING (WORD)
-  const cutText = children.split(" ").slice(0, collapsedNumWords);
-
-  let collapsedText = "";
-  cutText.map((word) => {
-    collapsedText += " " + word;
-  });
+  const cutText =
+    children.split(" ").slice(0, collapsedNumWords).join(" ") + "...";
 
   function handleTextDisplay() {
     setShowText((showText) => !showText);
@@ -60,7 +55,7 @@ function TextExpander({
   return (
     <div className="container">
       <div className={className}>
-        {showText ? children : collapsedText + "..."}
+        {showText ? children : cutText}
         <button
           onClick={handleTextDisplay}
           style={{
